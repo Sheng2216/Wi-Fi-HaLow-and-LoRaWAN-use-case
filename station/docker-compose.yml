@@ -1,0 +1,28 @@
+version: "3"
+
+services:
+  udp-packet-forwarder:
+    image: rakwireless/udp-packet-forwarder:v2.0.0
+    container_name: udp-packet-forwarder
+    restart: unless-stopped
+    privileged: true
+    network_mode: host # required to read main interface MAC instead of virtual one,
+    environment:
+      # use RAK5146 USB(with GPS) as an example
+      MODEL: "RAK5146"
+      INTERFACE: "USB"
+      HAS_GPS: "1"
+      HAS_LTE: "0"
+      RESET_GPIO: 17
+      RADIO_DEV: "/dev/ttyACM0"
+      GPS_DEV: "/dev/ttyS0"
+      # The service will define the Gateway EUI based on a network interface: eth0, wlan0 or us>
+      # If neither of these exist or you want it to use a different interface you can define th>
+      #GATEWAY_EUI_SOURCE: "eth1"
+      # You can also set a custom Gateway EUI (8 bytes in hex format).
+      # This takes precedence over the previous setting
+      GATEWAY_EUI: "AAAAAAAAAAAAAAAA"
+      # Server Host should be the NS's IP address, in this case, the Wi-Fi HaLow AP
+      SERVER_HOST: 192.168.200.1
+      SERVER_PORT: 1700
+      BAND: "kr_920_923"
