@@ -2,7 +2,9 @@
 
 ## 1. Introduction
 
-This guide explains how to use [Wi-Fi HaLow]() module [AHPI7292S](https://www.alfa.com.tw/products/ahpi7292s) in combination with LoRaWAN concentrators on RAK7391.
+This guide explains how to use [Wi-Fi HaLow]() module [AHPI7292S](https://www.alfa.com.tw/products/ahpi7292s) in combination with LoRaWAN concentrators on RAK7391. Below is the network architecture:
+
+![network architecturepng](./assets/architecture.png)
 
 ## 2. Hardware
 
